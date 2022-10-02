@@ -11,7 +11,9 @@
     "test:coverage": "jest --watch --coverage=true",
     "testDebug": "jest -o --watch --coverage=false",
     "testFinal": "jest",
-    "updateSnapshots": "jest -u --coverage=false"
+    "updateSnapshots": "jest -u --coverage=false",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.0",
@@ -27,10 +29,19 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-webpack4": "^6.5.12",
+    "@storybook/manager-webpack4": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
     "@types/jest": "^29.1.1",
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.69.1",
     "@types/react-test-renderer": "^18.0.0",
+    "babel-loader": "^8.2.5",
     "react-test-renderer": "^18.0.0",
     "typescript": "~4.3.5"
   },
