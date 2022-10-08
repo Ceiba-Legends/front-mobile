@@ -1,7 +1,7 @@
 import { Character } from "../../models";
 
 class CharacterService {
-  private apiUrl: string = process.env.CHARACTERS_URL || "http://localhost:8000/characters";
+  private apiUrl: string = process.env.CHARACTERS_URL || "http://localhost:8000/api/characters";
 
   /**
    * Fetch tous les personnages
