@@ -1,0 +1,33 @@
+name: Node.js CI
+
+on:
+  pull_request:
+    branches: [ "develop" ]
+    types: ["opened", "reopened"]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+
+    steps:
+    - name: Récupération du code
+      uses: actions/checkout@v3
+    - name: Setup de node ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Installation des dépendances
+      run: npm ci
+    - name: Lancement des tests
+      run: npm test:coverage > rapport.txt
+    - name: Génération du rapport de coverage
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage_rapport_node_${{ matrix.node-version }}
+        path: rapport.txt
