@@ -1,18 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, Text } from "react-native";
+import { RecoilRoot } from "recoil";
+import React from "react";
+import CharacterSelectPage from "./src/features/Character/pages/CharacterSelect/CharacterSelect.page";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <RecoilRoot>
+      <SafeAreaView>
+        <ScrollView>
+          <React.Suspense fallback={<Text>Chargement...</Text>}>
+            <CharacterSelectPage />
+          </React.Suspense>
+        </ScrollView>
+      </SafeAreaView>
+    </RecoilRoot>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
