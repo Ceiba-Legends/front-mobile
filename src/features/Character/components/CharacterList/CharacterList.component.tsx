@@ -1,18 +1,25 @@
-import { charactersQuery } from "../../../../recoil/Character.recoil";
 import React from "react";
+import { charactersQuery } from "../../../../recoil/Character.recoil";
 import { useRecoilValue } from "recoil";
-import { View, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
+import CharacterCardComponent from "../CharacterCard/CharacterCard.component";
 
 export default function CharacterListComponent() {
   const characters = useRecoilValue(charactersQuery);
-  console.log("Character select page");
-  console.log(characters);
   return (
-    <View>
+    <View style={styles.container}>
         {characters && characters.map((character) => (
-            <Text key={character.id}>{character.firstName}</Text>
+            <CharacterCardComponent character={character} key={character.id} />
         ))}
-        <Text>CharacterList.component charged</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 2,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});

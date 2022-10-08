@@ -6,7 +6,6 @@ export default function CharacterSelectPage() {
 
   return (
     <View>
-      <Text>CharacterSelect.page</Text>
       <CharacterListComponent />
     </View>
   );
